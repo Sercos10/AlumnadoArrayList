@@ -14,6 +14,9 @@ public class Grupo {
         array=new ArrayList<>();
     }
 
+    public String getNombre() {
+        return nombre;
+    }
 
     public Boolean add(Alumno a){
         boolean result=false;
@@ -122,11 +125,38 @@ public class Grupo {
         return average;
     }
 
+    /**
+     * Metodo para devolver el alumno con la nota mas alta del grupo
+     * @return devuelve el alumno con la nota mas alta
+     */
     public Alumno highestNote(){
         Alumno a=null;
-
+        Double alta=0.0;
+        for (Alumno b:array) {
+            if (b.getNota()>alta){
+                alta=b.getNota();
+                a=b;
+            }
+        }
         return a;
     }
+
+    /**
+     * Metodo para devolver el alumno con la nota mas baja del grupo
+     * @return devuelve el alumno con la nota mas baja
+     */
+    public Alumno lowestNote(){
+        Alumno a=null;
+        Double baja=array.get(0).getNota();
+        for (Alumno b:array) {
+            if (b.getNota()<baja){
+                baja=b.getNota();
+                a=b;
+            }
+        }
+        return a;
+    }
+
     @Override
     public String toString() {
         String s="GRUPO: "+ this.nombre;
