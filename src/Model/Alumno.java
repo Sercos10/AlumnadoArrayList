@@ -44,7 +44,6 @@ public class Alumno {
     public String toString() {
         return "\n\tAlumno---->" +
                 "nombre='" + nombre + '\'' +
-                ", nota=" + nota +
-                '}';
+                ", nota=" + nota;
     }
 }

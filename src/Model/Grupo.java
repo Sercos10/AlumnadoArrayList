@@ -30,7 +30,7 @@ public class Grupo {
 
     public Alumno remove(String nombre){
         //Iterator<Alumno> it= array.iterator();
-        Alumno b=null;
+        Alumno b=new Alumno();
         /*
         while (it.hasNext()){
             Alumno a=it.next();
@@ -72,7 +72,7 @@ public class Grupo {
     public int searchAlum(String name){
         int pos=-1;
         for (Alumno a: array) {
-            if (a.getNombre().equals(nombre)){
+            if (a.getNombre().equals(name)){
                 pos= array.indexOf(a);
             }
         }
@@ -85,7 +85,7 @@ public class Grupo {
      * @return devuelve el alumno, si no lo encuentra, devuelve NULL
      */
     public Alumno findAlum(String name){
-        Alumno a=null;
+        Alumno a=new Alumno();
         for (Alumno b:array) {
             if (b.getNombre().equals(name)){
                 a=b;
@@ -103,7 +103,7 @@ public class Grupo {
     public boolean editNote(String name, Double newNote){
         boolean cambiada=false;
         for (Alumno a:array) {
-            if (a.getNombre().equals(nombre)){
+            if (a.getNombre().equals(name)){
                 a.setNota(newNote);
                 cambiada=true;
             }
@@ -130,7 +130,7 @@ public class Grupo {
      * @return devuelve el alumno con la nota mas alta
      */
     public Alumno highestNote(){
-        Alumno a=null;
+        Alumno a=new Alumno();
         Double alta=0.0;
         for (Alumno b:array) {
             if (b.getNota()>alta){
@@ -146,8 +146,8 @@ public class Grupo {
      * @return devuelve el alumno con la nota mas baja
      */
     public Alumno lowestNote(){
-        Alumno a=null;
-        Double baja=array.get(0).getNota();
+        Alumno a=new Alumno();
+        Double baja=12.0;
         for (Alumno b:array) {
             if (b.getNota()<baja){
                 baja=b.getNota();

@@ -63,8 +63,8 @@ public class print {
         System.out.println();
     }
 
-    public static void añadido(Grupo grupo, Alumno añadido){
-        System.out.println(" Alumno añadido exitosamente a: "+añadido.getNombre()+" de: "+grupo.getNombre());
+    public static void añadido(Grupo grupo, Alumno añadido, Double nota){
+        System.out.println(añadido.getNombre()+" añadido exitosamente a: "+grupo.getNombre()+" con una nota de "+nota);
     }
     public static void eliminado(Grupo grupo, Alumno eliminado){
         System.out.println(" Alumno eliminado exitosamente a: "+eliminado.getNombre()+" de: "+grupo.getNombre());
@@ -73,7 +73,7 @@ public class print {
         System.out.println(" El alumno "+encontrado.getNombre()+" se encuemtra en la posicion "+pos+" del grupo "+grupo.getNombre());
     }
     public static void encotradoNom(Grupo grupo, Alumno encotrado){
-        System.out.println("El alumno "+encotrado.getNombre()+" de "+grupo.getNombre()+" tiene una nota de"+encotrado.getNota());
+        System.out.println("El alumno "+encotrado.getNombre()+" de "+grupo.getNombre()+" tiene una nota de "+encotrado.getNota());
     }
     public static void newNote(Grupo grupo, Alumno alumno, Double newNote){
         System.out.println("La nueva nota del alumno "+alumno.getNombre()+" en el grupo "+grupo.getNombre()+" es "+newNote );
@@ -81,11 +81,11 @@ public class print {
     public static void media(Grupo grupo, Double media){
         System.out.println("La nota media de "+grupo.getNombre()+" es "+media);
     }
-    public static void alta(Grupo grupo, Alumno alto){
-        System.out.println("El alumno con mas nota de "+grupo.getNombre()+" es "+alto.getNombre());
+    public static void alta(Grupo grupo, Alumno alto, Double note){
+        System.out.println("El alumno con mas nota de "+grupo.getNombre()+" es "+alto.getNombre()+" con una nota de "+note);
     }
-    public static void baja(Grupo grupo, Alumno bajo){
-        System.out.println("El alumno con menos nota de "+grupo.getNombre()+" es "+bajo.getNombre());
+    public static void baja(Grupo grupo, Alumno bajo, Double note){
+        System.out.println("El alumno con menos nota de "+grupo.getNombre()+" es "+bajo.getNombre()+" con una nota de "+note);
     }
     public static void muestraGrupo(Grupo grupo){
         System.out.println(grupo);

@@ -13,7 +13,9 @@ public class MainController {
         Grupo primeroSMR = new Grupo("PrimeroSMR");
         Grupo segundoSMR = new Grupo("SegundoSMR");
         do {
+            boolean salir=false;
             switch (option) {
+
                 case 1:
                     String nombre = pedir.leeRespuesta("Introduzca el nombre del alumno a añadir");
                     Double nota = pedir.leeDouble("Introduzca la nota del nuevo alumno");
@@ -25,10 +27,10 @@ public class MainController {
                         if (grupo > 0 && grupo < 3) {
                             if (grupo == 1) {
                                 primeroSMR.add(nuevo);
-                                print.añadido(primeroSMR, nuevo);
+                                print.añadido(primeroSMR, nuevo,nota);
                             } else {
                                 segundoSMR.add(nuevo);
-                                print.añadido(segundoSMR, nuevo);
+                                print.añadido(segundoSMR, nuevo,nota);
                             }
                             introducido = true;
                         } else {
@@ -66,7 +68,8 @@ public class MainController {
                                         case 4:
                                             boolean correcto = false;
                                             Double newNote = pedir.leeDouble("Introduce la nueva nota del alumno");
-                                            correcto = primeroSMR.editNote(nombre = pedir.leeRespuesta("Introduce el nombre del alumno al qe quieres modificar la nota"), newNote);
+                                            nombre = pedir.leeRespuesta("Introduce el nombre del alumno al qe quieres modificar la nota");
+                                            correcto = primeroSMR.editNote(nombre, newNote);
                                             encontrado = primeroSMR.findAlum(nombre);
                                             if (correcto) {
                                                 print.newNote(primeroSMR, encontrado, newNote);
@@ -81,11 +84,11 @@ public class MainController {
                                             break;
                                         case 6:
                                             Alumno empollon = primeroSMR.highestNote();
-                                            print.alta(primeroSMR, empollon);
+                                            print.alta(primeroSMR, empollon,empollon.getNota());
                                             break;
                                         case 7:
                                             Alumno vago = primeroSMR.lowestNote();
-                                            print.baja(primeroSMR, vago);
+                                            print.baja(primeroSMR, vago, vago.getNota());
                                             break;
                                         default:
                                             print.incorrecto();
@@ -134,11 +137,11 @@ public class MainController {
                                             break;
                                         case 6:
                                             Alumno empollon = segundoSMR.highestNote();
-                                            print.alta(segundoSMR, empollon);
+                                            print.alta(segundoSMR, empollon, empollon.getNota());
                                             break;
                                         case 7:
                                             Alumno vago = segundoSMR.lowestNote();
-                                            print.baja(segundoSMR, vago);
+                                            print.baja(segundoSMR, vago, vago.getNota());
                                             break;
                                         default:
                                             print.incorrecto();
@@ -159,13 +162,19 @@ public class MainController {
                     print.muestraGrupo(segundoSMR);
                     break;
                 case 4:
+                    salir=true;
                     print.adios();
                     break;
                 default:
                     print.incorrecto();
             }
-            print.MainMenu();
-            option = pedir.leeEntero();
+            if (option!=4){
+                print.MainMenu();
+                option = pedir.leeEntero();
+            }
+            if (option==4&&!salir){
+                print.adios();
+            }
         } while (option != 4);
     }
 }
